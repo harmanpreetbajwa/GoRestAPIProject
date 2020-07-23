@@ -90,20 +90,19 @@ public class RestClient {
 	private static Response executeAPI(String httpMethod,RequestSpecification request,String basePath) {
 		
 		Response response = null;
-	switch(httpMethod) {
-	case "GET":
+	if(httpMethod.equalsIgnoreCase("GET")) {
 		response=request.get(basePath);
-		break;
-	case "POST":
+	}
+	else if(httpMethod.equalsIgnoreCase("POST")) {
 		response=request.post(basePath);
-		break;	
-	case "PUT":
+	}
+		else if(httpMethod.equalsIgnoreCase("PUT")) {
 		response=request.put(basePath);
-		break;	
-	case "DELETE":
+		}
+		else if(httpMethod.equalsIgnoreCase("DELETE")) {
 		response=request.delete(basePath);
-		break;
-		default:
+		}
+		else {
 			System.out.println("Please Enter a Valid HTTP Method");
 	}
 	return response;
